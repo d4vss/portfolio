@@ -18,9 +18,10 @@ type Repository = {
 export default function GitHubRepositories() {
   const [repos, setRepos] = useState<Repository[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   const containerRef = useRef<HTMLDivElement>(null);
+  const animationRef = useRef<gsap.core.Tween | null>(null);
 
   useEffect(() => {
     const fetchRepositories = async () => {
@@ -33,8 +34,12 @@ export default function GitHubRepositories() {
         const data = await response.json();
         const forzaData = await forzaResponse.json();
         setRepos([...data, forzaData]);
-      } catch (err: any) {
-        setError(err.message);
+      } catch (err) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError('An unknown error occurred');
+        }
       } finally {
         setLoading(false);
       }
@@ -43,13 +48,11 @@ export default function GitHubRepositories() {
     fetchRepositories();
   }, []);
 
-  var animation: any = null;
-
   useEffect(() => {
     if (repos.length > 0 && containerRef.current) {
       const totalWidth = repos.length * 750;
       const ctx = gsap.context(() => {
-        animation = gsap.fromTo(
+        animationRef.current = gsap.fromTo(
           containerRef.current,
           { xPercent: 0 },
           {
@@ -60,7 +63,12 @@ export default function GitHubRepositories() {
           }
         );
         
-        return () => animation.kill();
+        return () => {
+          if (animationRef.current) {
+            animationRef.current.kill();
+            animationRef.current = null;
+          }
+        };
       }, containerRef);
 
       return () => ctx.revert();
@@ -73,8 +81,8 @@ export default function GitHubRepositories() {
   return (
     <div className="overflow-hidden w-full">
       <div className="flex gap-20 max-md:hidden" ref={containerRef} 
-           onMouseEnter={() => animation?.pause()} 
-           onMouseLeave={() => animation?.resume()}>
+           onMouseEnter={() => animationRef.current?.pause()} 
+           onMouseLeave={() => animationRef.current?.resume()}>
         {[...repos, ...repos].map((repo: Repository, index: number) => (
           <Card key={index} className="flex flex-col justify-between rounded-sm w-[500px] flex-shrink-0">
             <div>

@@ -2,9 +2,8 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { useSearchParams } from "next/navigation";
-import { Button } from "./ui/button";
 import Link from "next/link";
+import { Button } from "./ui/button";
 
 const titles = ["Next.js Developer", "Nuxt3 Developer", "Astro Developer", "Angular 18 Developer"];
 
