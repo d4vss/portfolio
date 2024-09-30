@@ -27,22 +27,22 @@ export default function AnimatedHero() {
 
 
     tlTemp
-      .set(heroTextRef.current, { x: -100, opacity: 0 })
-      .set(shortDescriptionRef.current, { x: -100, opacity: 0 })
-      .set(readMoreButtonRef.current, { x: -100, opacity: 0 })
+      .set(heroTextRef.current, { y: 75, opacity: 0 })
+      .set(shortDescriptionRef.current, { y: 50, opacity: 0 })
+      .set(readMoreButtonRef.current, { y: 25, opacity: 0 })
       .to(heroTextRef.current, {
-        x: 0,
+        y: 0,
         ease: "sine.out",
         delay: 1.75,
         opacity: 1
       })
       .to(shortDescriptionRef.current, {
-        x: 0,
+        y: 0,
         ease: "sine.out",
         opacity: 1
       })
       .to(readMoreButtonRef.current, {
-        x: 0,
+        y: 0,
         ease: "sine.out",
         opacity: 1
       });
@@ -65,10 +65,10 @@ export default function AnimatedHero() {
 
   return (
     <>
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col items-center justify-center gap-5 min-h-[calc(100vh-16rem)]">
         <div ref={heroTextRef}>
-          <div className="flex width-regulator mt-10 max-md:hidden">
-            <h1 className="inline-block">I&apos;m a&nbsp;</h1>
+          <div className="flex mt-10 max-lg:hidden">
+            <h1 className="inline-block">I&apos;m Davs, a&nbsp;</h1>
             <div className="relative inline">
               <div className="overflow-hidden h-[3.25rem]"> 
                 <h1 ref={textRef} className="inline-block">
@@ -77,11 +77,11 @@ export default function AnimatedHero() {
               </div>
             </div>
           </div>
-          <div className="md:hidden">
-            <h1>I&apos;m a Developer.</h1>
+          <div className="lg:hidden">
+            <h1>Hey, I&apos;m Davs.</h1>
           </div>
         </div>
-        <p className="muted text-xl" ref={shortDescriptionRef}>Tech Enthusiast and Web Developer from Central Europe.</p>
+        <p className="muted text-xl text-center" ref={shortDescriptionRef}>Tech Enthusiast and Web Developer from Central Europe.</p>
         <Button className="w-fit font-semibold p-0 underline" variant="link" size="lg" ref={readMoreButtonRef} asChild>
           <Link href="/about">
             Read more about me

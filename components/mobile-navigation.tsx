@@ -12,7 +12,7 @@ import {
 
 import { Button } from "@/components/ui/button";
 
-import { Scroll } from "lucide-react";
+import { Book, Scroll } from "lucide-react";
 import { SiGithub } from "@icons-pack/react-simple-icons";
 
 export default function MobileNavigation() {
@@ -28,11 +28,18 @@ export default function MobileNavigation() {
       <NavigationMenu>
         <NavigationMenuList className="flex items-center gap-2">
           <NavigationMenuItem>
-            <NavigationMenuLink href="/resume" asChild>
-              <div className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring pointer-events-none opacity-50 text-secondary-foreground shadow-sm hover:bg-secondary/80 h-9 w-9">
+            <Link href="/resume" className="pointer-events-none">
+              <Button variant="ghost" size="icon" disabled>
                 <Scroll className="h-[1.2rem] w-[1.2rem]" />
-              </div>
-            </NavigationMenuLink>
+              </Button>
+            </Link>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Link href="/about">
+              <Button variant="ghost" size="icon">
+                <Book className="h-[1.2rem] w-[1.2rem]" />
+              </Button>
+            </Link>
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuLink href="https://github.com/d4vss" target="_blank">

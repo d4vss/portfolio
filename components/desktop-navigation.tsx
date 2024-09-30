@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
 import ModeToggle from "@/components/mode-toggle";
-import { Scroll } from "lucide-react";
+import { Book, Scroll } from "lucide-react";
 import { SiGithub } from "@icons-pack/react-simple-icons";
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
@@ -88,16 +88,26 @@ export default function DesktopNavigation() {
       <NavigationMenu>
         <NavigationMenuList className="flex items-center gap-2" ref={icons}>
           <NavigationMenuItem>
-            <NavigationMenuLink href="/resume" asChild>
-              <div className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring pointer-events-none opacity-50 text-secondary-foreground shadow-sm hover:bg-secondary/80 h-9 w-9">
+            <Link prefetch href="/resume" className="pointer-events-none">
+              <Button variant="ghost" className="gap-2" disabled>
                 <Scroll className="h-[1.2rem] w-[1.2rem]" />
-              </div>
-            </NavigationMenuLink>
+                Resume
+              </Button>
+            </Link>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Link prefetch href="/about">
+              <Button variant="ghost" className="gap-2">
+                <Book className="h-[1.2rem] w-[1.2rem]" />
+                About me
+              </Button>
+            </Link>
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuLink href="https://github.com/d4vss" target="_blank">
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" className="gap-2">
                 <SiGithub className="h-[1.2rem] w-[1.2rem]" />
+                GitHub
               </Button>
             </NavigationMenuLink>
           </NavigationMenuItem>

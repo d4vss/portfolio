@@ -48,7 +48,7 @@ export default function RootLayout({
             </header>
             <main className="flex-grow">
               <Suspense fallback={<Loading />}>
-                <div className="my-10 px-4">
+                <div className="my-10 px-4 width-regulator">
                   {children}
                 </div>
                 <Toaster expand richColors pauseWhenPageIsHidden  />
