@@ -12,6 +12,7 @@ export default function Home() {
       <section className="min-h-screen flex justify-center flex-col">
         <Landing />
       </section>
+      
       <section className="width-regulator mt-4">
         <div>
           <h2>
@@ -27,14 +28,17 @@ export default function Home() {
         </div>
         <Technologies />
       </section>
-      <TextRevealByWord text="I believe in a design philosophy that centers around the user, customizing each project to fit their needs." />
       
-      <div className="mb-20 text-center flex gap-10 items-center justify-center">
+      <section>
+        <TextRevealByWord text="I believe in a design philosophy that centers around the user, customizing each project to fit their needs." />
+      </section>
+      
+      <section className="mb-20 text-center flex gap-10 items-center justify-center">
         <p className="large">Want to see some of my projects?</p>
         <Link href="https://github.com/d4vss" target="_blank">
           <RainbowButton>Visit my GitHub</RainbowButton>
         </Link>
-      </div>
+      </section>
     </>
   );
 }
