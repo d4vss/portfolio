@@ -33,7 +33,7 @@ export default function Home() {
         <TextRevealByWord text="I believe in a design philosophy that centers around the user, customizing each project to fit their needs." />
       </section>
       
-      <section className="mb-20 text-center flex gap-10 items-center justify-center">
+      <section className="mb-20 text-center flex gap-10 items-center justify-center max-md:flex-col">
         <p className="large">Want to see some of my projects?</p>
         <Link href="https://github.com/d4vss" target="_blank">
           <RainbowButton>Visit my GitHub</RainbowButton>
