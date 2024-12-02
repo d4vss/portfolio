@@ -25,7 +25,7 @@ export default function Home() {
         <Technologies />
       </section>
       
-      <section className="mb-20 text-center flex gap-10 items-center justify-center max-md:flex-col">
+      <section className="my-20 text-center flex gap-10 items-center justify-center max-md:flex-col">
         <p className="large">Want to see some of my projects?</p>
         <Link href="https://github.com/d4vss" target="_blank">
           <RainbowButton>Visit my GitHub</RainbowButton>
