@@ -77,7 +77,7 @@ export default function Technologies() {
         <FadeText text="My Top Technologies" />
       </h2>
       <div className="muted text-lg">
-        <FadeText text="I&apos;m skilled in diverse, cutting-edge technologies that enable me to create powerful, high-performing solutions. Here are some of my core tools." />
+        <FadeText text="Here are some of the tools I use to build efficient and effective web applications." />
       </div>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-6">
         {topTechnologies.map((technology: TechnologyType, index: number) => 
