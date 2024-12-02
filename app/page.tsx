@@ -19,10 +19,7 @@ export default function Home() {
           </h2>
 
           <div className="text-lg muted">
-            <FadeText text="I&apos;m a 17-year-old full-stack web developer focused on turning ideas into creative solutions. 
-              I specialize in building seamless, intuitive user experiences that prioritize clarity and usability.
-              Involved in every stage of development - from discovery and design to testing and deployment - I aim to 
-              deliver high-quality, scalable results that enhance the user experience and add lasting value." />
+            <FadeText text="I&apos;m a 17-year-old full-stack web developer who enjoys turning ideas into practical solutions. I focus on creating clear, user-friendly interfaces and am involved in all stages of development, from design to deployment. My goal is to build reliable, scalable solutions that provide lasting value." />
           </div>
         </div>
         <Technologies />
