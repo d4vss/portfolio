@@ -3,7 +3,6 @@ import Landing from "@/components/landing";
 import Technologies from "@/components/technologies";
 import { FadeText } from "@/components/ui/fade-text";
 import { RainbowButton } from "@/components/ui/rainbow-button";
-import TextRevealByWord from "@/components/ui/text-reveal";
 import Link from "next/link";
 
 export default function Home() {
@@ -27,10 +26,6 @@ export default function Home() {
           </div>
         </div>
         <Technologies />
-      </section>
-      
-      <section>
-        <TextRevealByWord text="I believe in a design philosophy that centers around the user, customizing each project to fit their needs." />
       </section>
       
       <section className="mb-20 text-center flex gap-10 items-center justify-center max-md:flex-col">
