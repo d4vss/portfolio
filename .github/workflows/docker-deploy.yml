@@ -15,17 +15,17 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t portfolio-page .
+          docker build -t portfolio .
 
       - name: Deploy Docker container
         if: success()
         run: |
-          docker stop portfolio-page || true
-          docker rm portfolio-page || true
+          docker stop portfolio || true
+          docker rm portfolio || true
           docker run -d -p 3001:3000 \
-            --name portfolio-page \
+            --name portfolio \
             --restart unless-stopped \
-            portfolio-page
+            portfolio
 
       - name: Remove unused Docker images
         if: success()

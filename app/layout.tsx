@@ -1,16 +1,23 @@
-import localFont from "next/font/local";
-import "../assets/globals.css";
+import type { Metadata } from "next";
+import { Outfit } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
+import "./globals.css";
 
-const geistSans = localFont({
-  src: "../assets/fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const outfit = Outfit({
+  variable: "--font-outfit",
+  subsets: ["latin"],
 });
-const geistMono = localFont({
-  src: "../assets/fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+
+export const metadata: Metadata = {
+  title: "d4vss",
+  metadataBase: new URL("https://portfolio-rust-gamma-62.vercel.app"),
+  twitter: {
+    images: ["/topography-twitter.webp"],
+  },
+  openGraph: {
+    images: ["/topography-twitter.webp"],
+  },
+};
 
 export default function RootLayout({
   children,
@@ -18,9 +25,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased text-foreground bg-background dark mx-6`}> 
-        {children}
+    <html suppressHydrationWarning lang="en">
+      <body
+        className={`${outfit.variable} antialiased flex flex-col min-h-screen`}
+      >
+        <div
+          className="fixed dark:invert w-screen h-screen opacity-15 max-md:opacity-25 dark:opacity-15 dark:max-md:opacity-25 -z-10"
+          style={{
+            backgroundImage: 'url("/topography.svg")',
+            backgroundRepeat: "repeat",
+            backgroundSize: "25%",
+            backgroundAttachment: "fixed",
+          }}
+        />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <main className="flex-grow m-5 md:m-10">{children}</main>
+        </ThemeProvider>
       </body>
     </html>
   );
