@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
@@ -7,17 +6,6 @@ const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
 });
-
-export const metadata: Metadata = {
-  title: "d4vss",
-  metadataBase: new URL("https://portfolio-rust-gamma-62.vercel.app"),
-  twitter: {
-    images: ["/topography-twitter.webp"],
-  },
-  openGraph: {
-    images: ["/topography-twitter.webp"],
-  },
-};
 
 export default function RootLayout({
   children,
