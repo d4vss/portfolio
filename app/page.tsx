@@ -20,6 +20,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface TechnologyType {
+  name: string;
   iconUrl: string;
   invertOnDarkMode?: boolean;
   filledBackground?: boolean;
@@ -34,23 +35,24 @@ interface ProjectType {
 }
 
 const technologies: TechnologyType[] = [
-  { iconUrl: "/icons/nextjs.svg", invertOnDarkMode: true },
-  { iconUrl: "/icons/react.svg" },
-  { iconUrl: "/icons/tailwind.svg" },
-  { iconUrl: "/icons/typescript.svg" },
-  { iconUrl: "/icons/postgresql.svg" },
-  { iconUrl: "/icons/sqlite.svg", invertOnDarkMode: true },
-  { iconUrl: "/icons/prisma.svg", invertOnDarkMode: true },
-  { iconUrl: "/icons/git.svg" },
-  { iconUrl: "/icons/shadcnui.svg", invertOnDarkMode: true, filledBackground: true },
-  { iconUrl: "/icons/parkui.svg" },
-  { iconUrl: "/icons/gsap.svg" },
-  { iconUrl: "/icons/framermotion.svg" },
-  { iconUrl: "/icons/authjs.svg" },
-  { iconUrl: "/icons/vuejs.svg" },
-  { iconUrl: "/icons/csharp.svg" },
-  { iconUrl: "/icons/python.svg" },
+  { name: "Next.js", iconUrl: "/icons/nextjs.svg", invertOnDarkMode: true },
+  { name: "React", iconUrl: "/icons/react.svg" },
+  { name: "Tailwind CSS", iconUrl: "/icons/tailwind.svg" },
+  { name: "TypeScript", iconUrl: "/icons/typescript.svg" },
+  { name: "PostgreSQL", iconUrl: "/icons/postgresql.svg" },
+  { name: "SQLite", iconUrl: "/icons/sqlite.svg", invertOnDarkMode: true },
+  { name: "Prisma", iconUrl: "/icons/prisma.svg", invertOnDarkMode: true },
+  { name: "Git", iconUrl: "/icons/git.svg" },
+  { name: "Shadcn UI", iconUrl: "/icons/shadcnui.svg", invertOnDarkMode: true, filledBackground: true },
+  { name: "Park UI", iconUrl: "/icons/parkui.svg" },
+  { name: "GSAP", iconUrl: "/icons/gsap.svg" },
+  { name: "Framer Motion", iconUrl: "/icons/framermotion.svg" },
+  { name: "Auth.js", iconUrl: "/icons/authjs.svg" },
+  { name: "Vue.js", iconUrl: "/icons/vuejs.svg" },
+  { name: "C#", iconUrl: "/icons/csharp.svg" },
+  { name: "Python", iconUrl: "/icons/python.svg" },
 ];
+
 
 const projects: ProjectType[] = [
   {
@@ -93,24 +95,42 @@ export default function Home() {
           Full Stack Developer
         </p>
         <div className="flex gap-2 items-center">
-          <Link href="https://github.com/d4vss" target="_blank">
-            <Button size="icon">
-              <GithubIcon />
-            </Button>
-          </Link>
-          <Link href="https://ko-fi.com/d4vss" target="_blank">
-            <Button size="icon">
-              <CoffeeIcon />
-            </Button>
-          </Link>
-          <TooltipProvider>
+          <TooltipProvider delayDuration={290}>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Link href="https://github.com/d4vss" target="_blank">
+                  <Button size="icon">
+                  <GithubIcon />
+                  </Button>
+                </Link>
+              </TooltipTrigger>
+              <TooltipContent side="bottom">
+                GitHub
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+          <TooltipProvider delayDuration={290}>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Link href="https://ko-fi.com/d4vss" target="_blank">
+                  <Button size="icon">
+                    <CoffeeIcon />
+                  </Button>
+                </Link>
+              </TooltipTrigger>
+              <TooltipContent side="bottom">
+                Ko-Fi
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+          <TooltipProvider delayDuration={290}>
             <Tooltip>
               <TooltipTrigger asChild>
                 <Button className="opacity-50 cursor-default" size="icon">
                   <AtSignIcon />
                 </Button>
               </TooltipTrigger>
-              <TooltipContent>Available soon!</TooltipContent>
+              <TooltipContent side="bottom">Available soon!</TooltipContent>
             </Tooltip>
           </TooltipProvider>
         </div>
@@ -127,20 +147,29 @@ export default function Home() {
               key={index}
               className="w-fit relative transition-all overflow-hidden rounded-md border p-4 border-border bg-stone-300/[.1] hover:bg-stone-300/[.50] dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
             >
-              <Image
-                priority
-                className={cn(
-                  "w-6 h-6 md:w-8 md:h-8",
-                  technology.invertOnDarkMode ? "dark:invert" : null,
-                  technology.filledBackground
-                    ? "dark:bg-foreground p-2 rounded"
-                    : null
-                )}
-                src={technology.iconUrl}
-                alt="Technology Logo"
-                width={32}
-                height={32}
-              />
+              <TooltipProvider delayDuration={290}>
+                <Tooltip>
+                  <TooltipTrigger className="cursor-default">
+                    <Image
+                      priority
+                      className={cn(
+                        "w-6 h-6 md:w-8 md:h-8",
+                        technology.invertOnDarkMode ? "dark:invert" : null,
+                        technology.filledBackground
+                          ? "dark:bg-foreground p-2 rounded"
+                          : null
+                      )}
+                      src={technology.iconUrl}
+                      alt="Technology Logo"
+                      width={32}
+                      height={32}
+                    />
+                  </TooltipTrigger>
+                  <TooltipContent side="bottom">
+                    {technology.name}
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             </div>
           ))}
         </div>
