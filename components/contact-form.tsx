@@ -34,10 +34,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { SendIcon } from "lucide-react";
 import { toast } from "sonner";
-import { useTranslation } from "react-i18next";
 
 export default function ContactForm() {
-  const { t } = useTranslation();
   const turnstile = useRef<TurnstileInstance | null>(null);
   const [turnstileToken, setTurnstileToken] = useState<
     string | null | undefined
@@ -58,20 +56,20 @@ export default function ContactForm() {
     formData.append("message", values.message);
     formData.append("cf-turnstile-response", turnstileToken as string);
 
-    if (!turnstileDone) return toast.error(t("contact.turnstileerror"));
+    if (!turnstileDone) return toast.error("Turnstile is not solved yet.");
 
     try {
       const response = await submitContactForm(null, formData);
       if (response == 200) {
         form.reset();
         setIsModalOpen(false);
-        toast.success(t("contact.success"));
+        toast.success("Form was successfully submitted.");
       } else {
-        toast.error(t("contact.error"));
+        toast.error("An error occured with submitting the form.");
       }
     } catch (error) {
       console.error(error);
-      toast.error(t("contact.error"));
+      toast.error("An error occured with submitting the form.");
     }
     turnstile.current?.reset();
   }
@@ -85,15 +83,18 @@ export default function ContactForm() {
               <AtSignIcon />
             </Button>
           </TooltipTrigger>
-          <TooltipContent side="bottom">{t("contact.tooltip")}</TooltipContent>
+          <TooltipContent side="bottom">Contact form</TooltipContent>
         </Tooltip>
       </TooltipProvider>
-  
+
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>{t("contact.title")}</DialogTitle>
-            <DialogDescription>{t("contact.subtitle")}</DialogDescription>
+            <DialogTitle>Contact Me</DialogTitle>
+            <DialogDescription>
+              Have a project or idea? Reach out, and I will get back to you
+              soon!
+            </DialogDescription>
           </DialogHeader>
           <Form {...form}>
             <form
@@ -106,11 +107,11 @@ export default function ContactForm() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>{t("contact.emailLabel")}</FormLabel>
+                    <FormLabel>Email</FormLabel>
                     <FormControl>
                       <Input
                         type="email"
-                        placeholder={t("contact.emailPlaceholder")}
+                        placeholder="example@d4vss.net"
                         {...field}
                       />
                     </FormControl>
@@ -124,7 +125,7 @@ export default function ContactForm() {
                 render={({ field }) => (
                   <FormItem>
                     <div className="flex justify-between pb-1">
-                      <FormLabel>{t("contact.messageLabel")}</FormLabel>
+                      <FormLabel>Message</FormLabel>
                       <FormLabel
                         className={
                           form.getValues().message.length > 1000
@@ -137,7 +138,7 @@ export default function ContactForm() {
                     </div>
                     <FormControl>
                       <Textarea
-                        placeholder={t("contact.messagePlaceholder")}
+                        placeholder="Your message..."
                         maxLength={1000}
                         rows={6}
                         {...field}
@@ -171,7 +172,7 @@ export default function ContactForm() {
                 variant="default"
               >
                 <SendIcon className="w-4 h-4" />
-                {t("contact.submit")}
+                Submit form
               </Button>
             </form>
           </Form>

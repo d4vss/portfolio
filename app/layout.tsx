@@ -2,7 +2,6 @@ import { Outfit } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
-import { Suspense } from "react";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -34,11 +33,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main className="flex-grow m-5 md:m-10">
-            <Suspense>
-              {children}
-            </Suspense>
-          </main>
+          <main className="flex-grow m-5 md:m-10">{children}</main>
           <Toaster />
         </ThemeProvider>
       </body>
