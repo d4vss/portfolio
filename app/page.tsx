@@ -1,3 +1,5 @@
+"use client"
+
 import ContactForm from "@/components/contact-form";
 import { ChevronsLeftRightIcon } from "@/components/icons/chevrons-left-right-icon";
 import { CoffeeIcon } from "@/components/icons/coffee-icon";
@@ -18,6 +20,10 @@ import { cn } from "@/lib/utils";
 import { BookIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+
+import "@/lib/i18n";
+import { useTranslation } from "react-i18next";
+import { LanguageSwitch } from "@/components/switch-language-button";
 
 interface TechnologyType {
   name: string;
@@ -54,26 +60,26 @@ const technologies: TechnologyType[] = [
   { name: "Python", iconUrl: "/icons/python.svg" },
 ];
 
-
-const projects: ProjectType[] = [
-  {
-    title: "Forza Mods Website",
-    description:
-      "Open source for the official Forza Mods website. Built with Next.js, Park UI and framer-motion.",
-    technologies: ["Typescript", "Next.js", "Park UI", "Framer Motion"],
-    imageUrl: "/assets/forzamods.png",
-    githubUrl: "https://github.com/ForzaMods/Website",
-    liveDemoUrl: "https://www.forzamods.dev/",
-  },
-  {
-    title: "Discord Giveaway Bot",
-    description: "A folder-based Python Discord Giveaway Bot built with Disnake and Aiosqlite. It features support for slash commands and utility functions.",
-    technologies: ["Python", "SQLite"],
-    githubUrl: "https://github.com/d4vss/discord-giveawaybot"
-  }
-];
-
 export default function Home() {
+  const { t } = useTranslation(); 
+
+  const projects: ProjectType[] = [
+    {
+      title: t("projects.forzaModsWebsite.title"),
+      description: t("projects.forzaModsWebsite.description"),
+      technologies: ["Typescript", "Next.js", "Park UI", "Framer Motion"],
+      imageUrl: "/assets/forzamods.png",
+      githubUrl: "https://github.com/ForzaMods/Website",
+      liveDemoUrl: "https://www.forzamods.dev/",
+    },
+    {
+      title: t("projects.discordGiveawayBot.title"),
+      description: t("projects.discordGiveawayBot.description"),
+      technologies: ["Python", "SQLite"],
+      githubUrl: "https://github.com/d4vss/discord-giveawaybot"
+    }
+  ];  
+
   return (
     <div className="max-w-7xl mx-auto my-10 grid grid-cols-1 lg:grid-cols-2 gap-10 justify-between">
       <BlurFade yOffset={2} duration={0.3}>
@@ -89,12 +95,15 @@ export default function Home() {
             />
           </div>
           <div className="lg:hidden">
-            <ModeToggle />
+            <div className="flex gap-2">
+              <LanguageSwitch />
+              <ModeToggle />
+            </div>
           </div>
         </div>
         <h1 className="mt-2 text-2xl font-bold tracking-tight">d4vss</h1>
         <p className="muted font-normal text-lg mb-2">
-          Full Stack Developer
+          {t("role")}
         </p>
         <div className="flex gap-2 items-center">
           <TooltipProvider delayDuration={290}>
@@ -127,13 +136,9 @@ export default function Home() {
           </TooltipProvider>
           <ContactForm />
         </div>
-        <p className="mt-5 font-semibold text-xl">About</p>
-        <p className="max-w-xs text-muted-foreground">
-          I have been developing web applications since 2021,
-          specializing in both frontend and backend development while staying
-          current with emerging technologies.
-        </p>
-        <h3 className="mt-5 mb-2">Technologies</h3>
+        <p className="mt-5 font-semibold text-xl">{t("about.title")}</p>
+        <p className="max-w-xs text-muted-foreground">{t("about.description")}</p>
+        <h3 className="mt-5 mb-2">{t("technologies.title")}</h3>
         <div className="md:max-w-sm flex flex-wrap gap-2">
           {technologies.map((technology: TechnologyType, index: number) => (
             <div
@@ -169,7 +174,10 @@ export default function Home() {
       </BlurFade>
       <BlurFade yOffset={2} duration={0.3}>
         <div className="max-lg:hidden flex justify-end items-start">
-          <ModeToggle />
+          <div className="flex gap-2">
+            <LanguageSwitch />
+            <ModeToggle />
+          </div>
         </div>
         <h2 className="font-semibold">Projects</h2>
         <div className="mt-5 space-y-5">

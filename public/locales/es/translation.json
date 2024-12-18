@@ -1,0 +1,38 @@
+{
+  "theme.title": "Cambiar tema",
+  "theme.light": "Claro",
+  "theme.dark": "Oscuro",
+  "theme.system": "Sistema",
+  
+  "language.english": "Inglés",
+  "language.polish": "Polaco",
+  "language.german": "Alemán",
+  "language.french": "Francés",
+  "language.spanish": "Español",
+  "language.portuguese": "Portugués",
+  "language.arabic": "Árabe",
+
+  "role": "Desarrollador Full Stack",
+  "about.title": "Acerca de",
+  "about.description": "He estado desarrollando aplicaciones web desde 2021, especializándome en el desarrollo tanto frontend como backend, manteniéndome al día con las tecnologías emergentes.",
+
+  "contact.tooltip": "Formulario de contacto",
+  "contact.title": "Contáctame",
+  "contact.subtitle": "¿Tienes un proyecto o idea? ¡Contáctame y te responderé pronto!",
+  "contact.emailLabel": "Correo electrónico",
+  "contact.emailPlaceholder": "ejemplo@d4vss.net",
+  "contact.messageLabel": "Mensaje",
+  "contact.messagePlaceholder": "Tu mensaje...",
+  "contact.submit": "Enviar formulario",
+  "contact.error": "Ocurrió un error al enviar el formulario.",
+  "contact.success": "El formulario se envió correctamente.",
+  "contact.turnstileerror": "El Turnstile aún no ha sido resuelto.",
+
+  "technologies.title": "Tecnologías",
+
+  "projects.title": "Proyectos",
+  "projects.forzaModsWebsite.title": "Sitio web Forza Mods",
+  "projects.forzaModsWebsite.description": "Código abierto para el sitio oficial de Forza Mods. Creado con Next.js, Park UI y framer-motion.",
+  "projects.discordGiveawayBot.title": "Bot Discord Giveaway",
+  "projects.discordGiveawayBot.description": "Un bot de Discord Giveaway basado en carpetas, construido con Disnake y Aiosqlite. Soporta comandos slash y funciones utilitarias."
+}
