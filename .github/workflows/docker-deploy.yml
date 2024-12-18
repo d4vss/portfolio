@@ -13,6 +13,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Create .env file
+        run: |
+          echo "NEXT_PUBLIC_TURNSTILE_SITE_KEY=${{ secrets.NEXT_PUBLIC_TURNSTILE_SITE_KEY }}" >> .env
+          echo "NEXT_PRIVATE_TURNSTILE_SECRET_KEY=${{ secrets.NEXT_PRIVATE_TURNSTILE_SECRET_KEY }}" >> .env
+          echo "DISCORD_WEBHOOK_URL=${{ secrets.DISCORD_WEBHOOK_URL }}" >> .env
+          echo "AUTH_TRUST_HOST=TRUE" >> .env      
+
       - name: Build Docker image
         run: |
           docker build -t portfolio .
@@ -27,7 +34,10 @@ jobs:
             --restart unless-stopped \
             portfolio
 
+      - name: Cleanup
+        run: |
+          rm .env
+
       - name: Remove unused Docker images
-        if: success()
         run: |
           docker image prune -f

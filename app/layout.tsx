@@ -1,5 +1,6 @@
 import { Outfit } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -33,6 +34,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <main className="flex-grow m-5 md:m-10">{children}</main>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

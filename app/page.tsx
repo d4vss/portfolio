@@ -1,9 +1,9 @@
-import { AtSignIcon } from "@/components/icons/at-sign-icon";
+import ContactForm from "@/components/contact-form";
 import { ChevronsLeftRightIcon } from "@/components/icons/chevrons-left-right-icon";
 import { CoffeeIcon } from "@/components/icons/coffee-icon";
 import { CursorClickIcon } from "@/components/icons/cursor-click-icon";
 import { GithubIcon } from "@/components/icons/github-icon";
-import { ModeToggle } from "@/components/toggle-mode-icon";
+import { ModeToggle } from "@/components/toggle-mode-button";
 import { Badge } from "@/components/ui/badge";
 
 import BlurFade from "@/components/ui/blur-fade";
@@ -30,6 +30,7 @@ interface ProjectType {
   title: string;
   description: string;
   technologies: string[];
+  imageUrl?: string;
   githubUrl?: string;
   liveDemoUrl?: string;
 }
@@ -60,6 +61,7 @@ const projects: ProjectType[] = [
     description:
       "Open source for the official Forza Mods website. Built with Next.js, Park UI and framer-motion.",
     technologies: ["Typescript", "Next.js", "Park UI", "Framer Motion"],
+    imageUrl: "/assets/forzamods.png",
     githubUrl: "https://github.com/ForzaMods/Website",
     liveDemoUrl: "https://www.forzamods.dev/",
   },
@@ -123,16 +125,7 @@ export default function Home() {
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
-          <TooltipProvider delayDuration={290}>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button className="opacity-50 cursor-default" size="icon">
-                  <AtSignIcon />
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent side="bottom">Available soon!</TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
+          <ContactForm />
         </div>
         <p className="mt-5 font-semibold text-xl">About</p>
         <p className="max-w-xs text-muted-foreground">
@@ -181,7 +174,7 @@ export default function Home() {
         <h2 className="font-semibold">Projects</h2>
         <div className="mt-5 space-y-5">
           {projects.map((project, index) => (
-            <div key={index} className="w-full group rounded-sm border p-4 transition-all border-border bg-stone-300/[.1] hover:bg-stone-300/[.50] dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
+            <div key={index} className="w-full group rounded-sm border p-4 transition-all border-border bg-stone-300/[.1] dark:border-gray-50/[.1] dark:bg-gray-50/[.10]"
             >
               <div className="flex gap-2 items-center justify-between">
                 <p className="flex items-center text-inherit bg-transparent font-semibold">
@@ -218,6 +211,7 @@ export default function Home() {
                   </Badge>
                 ))}
               </div>
+              {project.imageUrl && <Image src={project.imageUrl} alt={`${project.title} Image`} width={430} height={240} quality={75} priority className="rounded w-full object-cover mt-5 border border-white/25" />}
             </div>
           ))}
         </div>
