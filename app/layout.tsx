@@ -19,7 +19,7 @@ export default function RootLayout({
         className={`${outfit.variable} antialiased flex flex-col min-h-screen`}
       >
         <div
-          className="fixed dark:invert w-screen h-screen opacity-15 max-md:opacity-25 dark:opacity-15 dark:max-md:opacity-25 -z-10"
+          className="fixed dark:invert w-screen h-dvh opacity-15 max-md:opacity-25 dark:opacity-15 dark:max-md:opacity-25 -z-10"
           style={{
             backgroundImage: 'url("/topography.svg")',
             backgroundRepeat: "repeat",

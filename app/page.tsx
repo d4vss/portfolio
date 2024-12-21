@@ -138,31 +138,23 @@ export default function Home() {
           {technologies.map((technology: TechnologyType, index: number) => (
             <div
               key={index}
-              className="w-fit relative transition-all overflow-hidden rounded-md border p-4 border-border bg-stone-300/[.1] hover:bg-stone-300/[.50] dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
+              className="w-28 flex flex-col items-center gap-4 relative transition-all overflow-hidden rounded-md border p-2 border-border bg-stone-300/[.1] hover:bg-stone-300/[.50] dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
             >
-              <TooltipProvider delayDuration={290}>
-                <Tooltip>
-                  <TooltipTrigger className="cursor-default">
-                    <Image
-                      priority
-                      className={cn(
-                        "w-6 h-6 md:w-8 md:h-8",
-                        technology.invertOnDarkMode ? "dark:invert" : null,
-                        technology.filledBackground
-                          ? "dark:bg-foreground p-2 rounded"
-                          : null
-                      )}
-                      src={technology.iconUrl}
-                      alt="Technology Logo"
-                      width={32}
-                      height={32}
-                    />
-                  </TooltipTrigger>
-                  <TooltipContent side="bottom">
-                    {technology.name}
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
+              <Image
+                priority
+                className={cn(
+                  "w-6 h-6 md:w-8 md:h-8",
+                  technology.invertOnDarkMode ? "dark:invert" : null,
+                  technology.filledBackground
+                    ? "dark:bg-foreground p-2 rounded"
+                    : null
+                )}
+                src={technology.iconUrl}
+                alt="Technology Logo"
+                width={32}
+                height={32}
+              />
+              <p className="small text-muted-foreground">{technology.name}</p>
             </div>
           ))}
         </div>
