@@ -134,11 +134,11 @@ export default function Home() {
           current with emerging technologies.
         </p>
         <h3 className="mt-5 mb-2">Technologies</h3>
-        <div className="md:max-w-sm flex flex-wrap gap-2">
+        <div className="md:max-w-sm flex flex-wrap max-md:grid grid-cols-3 max-md:justify-between gap-2">
           {technologies.map((technology: TechnologyType, index: number) => (
             <div
               key={index}
-              className="w-28 flex flex-col items-center gap-4 relative transition-all overflow-hidden rounded-md border p-2 border-border bg-stone-300/[.1]dark:border-gray-50/[.1] dark:bg-gray-50/[.10]"
+              className="w-[6.5rem] max-md:w-full flex flex-col items-center text-center gap-4 relative transition-all overflow-hidden rounded-md border p-2 border-border bg-stone-300/[.1]dark:border-gray-50/[.1] dark:bg-gray-50/[.10]"
             >
               <Image
                 priority
