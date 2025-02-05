@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 import { BookIcon } from "lucide-react";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -75,6 +76,12 @@ const projects: ProjectType[] = [
 
 export default function Home() {
   return (
+    <>
+    <Head>
+      {technologies.map((technology, index) => 
+        <link rel="preload" href={technology.iconUrl} as="image" key={index} />
+      )}
+    </Head>
     <div className="max-w-7xl mx-auto my-10 grid grid-cols-1 lg:grid-cols-2 gap-10 justify-between">
       <BlurFade yOffset={2} duration={0.3}>
         <div className="max-lg:flex justify-between gap-2">
@@ -208,6 +215,6 @@ export default function Home() {
           ))}
         </div>
       </BlurFade>
-    </div>
+    </div></>
   );
 }
