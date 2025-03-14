@@ -133,7 +133,7 @@ export default function Home() {
             </Tooltip>
           </TooltipProvider>
           <ContactForm />
-        </div>
+        </div> 
         <p className="mt-5 font-semibold text-xl">About</p>
         <p className="max-w-xs text-muted-foreground">
           I have been developing web applications since 2021,
