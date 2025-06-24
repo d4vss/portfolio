@@ -58,6 +58,15 @@ const technologies: TechnologyType[] = [
 
 const projects: ProjectType[] = [
   {
+    title: "Solven",
+    description:
+      "Solven is a modern file sharing platform built with Next.js and HeroUI. It provides a simple and efficient way to upload, store, and share files with others.",
+    technologies: ["Typescript", "Next.js", "Hero UI", "Auth.js", "Cloudflare R2", "Neon Database",  "Auth.js", "Drizzle ORM"],
+    imageUrl: "/assets/solven.png",
+    githubUrl: "https://github.com/d4vss/solven",
+    liveDemoUrl: "https://solven.d4vss.net/",
+  },
+  {
     title: "Forza Mods Website",
     description:
       "Open source for the official Forza Mods website. Built with Next.js, Park UI and framer-motion.",
@@ -177,7 +186,7 @@ export default function Home() {
             >
               <div className="flex gap-2 items-center justify-between">
                 <p className="flex items-center text-inherit bg-transparent font-semibold">
-                  <BookIcon className="inline mr-2 w-4 h-4" /> {project.title}
+                  <BookIcon className="inline mr-2 w-4 h-4 flex-shrink-0" /> {project.title}
                 </p>
                 <div className="flex gap-2">
                   {project.githubUrl && (
