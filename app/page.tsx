@@ -1,6 +1,5 @@
 import ContactForm from "@/components/contact-form";
 import { ChevronsLeftRightIcon } from "@/components/icons/chevrons-left-right-icon";
-import { CoffeeIcon } from "@/components/icons/coffee-icon";
 import { CursorClickIcon } from "@/components/icons/cursor-click-icon";
 import { GithubIcon } from "@/components/icons/github-icon";
 import { ModeToggle } from "@/components/toggle-mode-button";
@@ -124,20 +123,6 @@ export default function Home() {
               </TooltipTrigger>
               <TooltipContent side="bottom">
                 GitHub
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-          <TooltipProvider delayDuration={290}>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Link href="https://ko-fi.com/d4vss" target="_blank">
-                  <Button size="icon">
-                    <CoffeeIcon />
-                  </Button>
-                </Link>
-              </TooltipTrigger>
-              <TooltipContent side="bottom">
-                Ko-Fi
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
