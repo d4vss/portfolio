@@ -60,7 +60,7 @@ const projects: ProjectType[] = [
     title: "Solven",
     description:
       "Solven is a modern file sharing platform built with Next.js and HeroUI. It provides a simple and efficient way to upload, store, and share files with others.",
-    technologies: ["Typescript", "Next.js", "Hero UI", "Auth.js", "Cloudflare R2", "Neon Database",  "Auth.js", "Drizzle ORM"],
+    technologies: ["Typescript", "Next.js", "Hero UI", "Auth.js", "Cloudflare R2", "Neon Database", "Drizzle ORM"],
     imageUrl: "/assets/solven.png",
     githubUrl: "https://github.com/d4vss/solven",
     liveDemoUrl: "https://solven.d4vss.net/",
