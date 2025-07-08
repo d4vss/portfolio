@@ -60,7 +60,7 @@ const projects: ProjectType[] = [
     title: "Solven",
     description:
       "Solven is a modern file sharing platform built with Next.js and HeroUI. It provides a simple and efficient way to upload, store, and share files with others.",
-    technologies: ["Typescript", "Next.js", "Hero UI", "Auth.js", "Cloudflare R2", "Neon Database", "Drizzle ORM"],
+    technologies: ["Typescript", "Next.js", "Hero UI", "Auth.js", "Cloudflare R2", "Neon DB", "Drizzle ORM"],
     imageUrl: "/assets/solven.png",
     githubUrl: "https://github.com/d4vss/solven",
     liveDemoUrl: "https://solven.d4vss.net/",
@@ -204,7 +204,11 @@ export default function Home() {
                   </Badge>
                 ))}
               </div>
-              {project.imageUrl && <Image src={project.imageUrl} alt={`${project.title} Image`} width={430} height={240} quality={75} priority className="rounded w-full object-cover mt-5 border border-white/25" />}
+              {project.imageUrl && <div>
+                <Link href={project.liveDemoUrl || project.githubUrl || ''} target="_blank">
+                  <Image src={project.imageUrl} alt={`${project.title} Image`} width={430} height={240} quality={75} priority className="rounded w-full object-cover mt-5 border border-white/25" />
+                </Link>
+              </div>}
             </div>
           ))}
         </div>
