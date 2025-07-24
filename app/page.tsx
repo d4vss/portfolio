@@ -139,7 +139,7 @@ export default function Home() {
           {technologies.map((technology: TechnologyType, index: number) => (
             <div
               key={index}
-              className="w-[6.5rem] max-md:w-full flex flex-col items-center text-center gap-4 relative transition-all overflow-hidden rounded-md border p-2 border-border bg-stone-300/[.1]dark:border-gray-50/[.1] dark:bg-gray-50/[.10]"
+              className="backdrop-blur-[2.5px] bg-white/10 w-[6.5rem] max-md:w-full flex flex-col items-center text-center gap-4 relative transition-all overflow-hidden rounded-md border p-2 border-border bg-stone-300/[.1]dark:border-gray-50/[.1] dark:bg-gray-50/[.10]"
             >
               <Image
                 priority
@@ -167,7 +167,7 @@ export default function Home() {
         <h2 className="font-semibold">Projects</h2>
         <div className="mt-5 space-y-5">
           {projects.map((project, index) => (
-            <div key={index} className="w-full group rounded-sm border p-4 transition-all border-border bg-stone-300/[.1] dark:border-gray-50/[.1] dark:bg-gray-50/[.10]"
+            <div key={index} className="backdrop-blur-[3.5px] bg-white/10 w-full group rounded-sm border p-4 transition-all border-border  dark:border-gray-50/[.1] dark:bg-gray-50/[.10]"
             >
               <div className="flex gap-2 items-center justify-between">
                 <p className="flex items-center text-inherit bg-transparent font-semibold">
